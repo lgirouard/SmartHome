@@ -26,6 +26,9 @@ public class Fan extends ApplianceEntity {
         if (speed < 0 || speed > 2) {
             throw new IllegalArgumentException("Speed must be between 0 and 2.");
         }
+        if(speed != 0){
+            this.powerOn();
+        }
         this.speed = speed;
     }
 
