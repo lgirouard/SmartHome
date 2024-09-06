@@ -4,7 +4,7 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 
 @Entity
-public class Light implements IAppliance{
+public class Light extends ApplianceEntity{
     @Id
     private Long id;
     private boolean isOn;

@@ -4,7 +4,7 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 
 @Entity
-public class AirConditioner implements IAppliance{
+public class AirConditioner extends ApplianceEntity{
 
 
     @Id

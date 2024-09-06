@@ -4,7 +4,7 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 
 @Entity
-public class Fan implements IAppliance{
+public class Fan extends ApplianceEntity{
     @Id
     private Long id;
     // 0 = OFF, 1 = LOW, 2 = HIGH
