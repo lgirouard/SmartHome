@@ -1,11 +1,10 @@
 package com.appliances.entities;
 
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.MappedSuperclass;
+import jakarta.persistence.*;
 
-@MappedSuperclass
+@Entity
+@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
+@DiscriminatorColumn(name = "appliance_type", discriminatorType = DiscriminatorType.STRING)
 public abstract class ApplianceEntity implements IAppliance {
 
     @Id

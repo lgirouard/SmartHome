@@ -1,8 +1,10 @@
 package com.appliances.entities;
 
+import jakarta.persistence.DiscriminatorValue;
 import jakarta.persistence.Entity;
 
 @Entity
+@DiscriminatorValue("Fan")
 public class Fan extends ApplianceEntity {
 
     // 0 = OFF, 1 = LOW, 2 = HIGH
