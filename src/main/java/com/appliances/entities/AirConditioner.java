@@ -26,6 +26,7 @@ public class AirConditioner extends ApplianceEntity {
 
     public void setTemperature(int temperature) {
         this.temperature = temperature;
+        this.powerOn();
     }
 
     public int getTemperature() {

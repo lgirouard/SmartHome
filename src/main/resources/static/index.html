@@ -41,25 +41,27 @@
     <!-- Fan Controls -->
     <div class="appliance-control">
         <h3>Fan Control</h3>
+        <button onclick="setFanSpeed(0)">Turn Off</button>
         <button onclick="setFanSpeed(1)">Set Speed to Low</button>
         <button onclick="setFanSpeed(2)">Set Speed to High</button>
-        <button onclick="setFanSpeed(0)">Turn Off</button>
         <p id="fan-status">Fan Status: </p>
     </div>
 
     <!-- Light Controls -->
     <div class="appliance-control">
         <h3>Light Control</h3>
-        <button onclick="turnOnLight()">Turn On Light</button>
-        <button onclick="turnOffLight()">Turn Off Light</button>
+        <button onclick="turnOnAppliance(1)">Turn On Light</button>
+        <button onclick="turnOffAppliance(1)">Turn Off Light</button>
         <p id="light-status">Light Status: </p>
     </div>
 
     <!-- Thermostat -->
     <div class="appliance-control">
         <h3>Thermostat</h3>
-        <input type="number" id="temperature-input" placeholder="Set Temperature">
+        <label for="temperature-input"></label><input type="number" id="temperature-input" placeholder="Set Temperature">
         <button onclick="setACTemperature()">Set Temperature</button>
+        <button onclick="turnOnAppliance(3)">ON</button>
+        <button onclick="turnOffAppliance(3)">OFF</button>
         <p id="ac-status">AC Status: </p>
     </div>
 </div>
