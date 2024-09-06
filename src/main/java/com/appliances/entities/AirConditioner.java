@@ -1,37 +1,32 @@
 package com.appliances.entities;
 
 import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
 
 @Entity
-public class AirConditioner extends ApplianceEntity{
+public class AirConditioner extends ApplianceEntity {
 
-
-    @Id
-    private Long id;
-    private boolean isOn;
     private int temperature;
 
     @Override
     public void powerOn() {
-        this.isOn = true;
+        setOn(true); // Use method from ApplianceEntity
     }
 
     @Override
     public void powerOff() {
-    this.isOn = false;
+        setOn(false); // Use method from ApplianceEntity
     }
 
     @Override
     public String getStatus() {
-        return isOn ? "ON - TEMP: " +temperature : "OFF";
+        return isOn() ? "ON - TEMP: " + temperature : "OFF";
     }
 
-    public void setId(Long id) {
-        this.id = id;
+    public void setTemperature(int temperature) {
+        this.temperature = temperature;
     }
 
-    public Long getId() {
-        return id;
+    public int getTemperature() {
+        return temperature;
     }
 }

@@ -1,14 +1,12 @@
 package com.appliances.entities;
 
-
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.MappedSuperclass;
 
-
 @MappedSuperclass
-public abstract class ApplianceEntity implements IAppliance{
+public abstract class ApplianceEntity implements IAppliance {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -32,5 +30,6 @@ public abstract class ApplianceEntity implements IAppliance{
         this.isOn = isOn;
     }
 
+    // Each subclass implements this
     public abstract String getStatus();
 }

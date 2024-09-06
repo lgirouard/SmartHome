@@ -1,30 +1,22 @@
 package com.appliances.entities;
 
 import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
 
 @Entity
-public class Light extends ApplianceEntity{
-    @Id
-    private Long id;
-    private boolean isOn;
+public class Light extends ApplianceEntity {
 
     @Override
-    public void powerOn() { this.isOn = true; }
+    public void powerOn() {
+        setOn(true);
+    }
 
     @Override
-    public void powerOff() { this.isOn = false;}
+    public void powerOff() {
+        setOn(false);
+    }
 
     @Override
     public String getStatus() {
-        return isOn ? "ON" : "OFF";
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public Long getId() {
-        return id;
+        return isOn() ? "ON" : "OFF";
     }
 }
