@@ -15,7 +15,7 @@ public class UpdateScheduler {
     }
 
     // method runs once a year on January 1st at 1:00 AM
-    @Scheduled(cron = "0 0 1 1 1 *", zone = "#{T(java.time.ZoneId).systemDefault().id}")
+    @Scheduled(cron = "0 0 1 1 1 *")
     public void performSystemUpdate() {
         System.out.println("Performing annual system update. Turning off all appliances.");
 
