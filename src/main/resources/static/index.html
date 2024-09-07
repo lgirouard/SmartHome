@@ -4,31 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Smart Home Appliance System</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f4f4f4;
-            padding: 20px;
-        }
-        .control-panel {
-            max-width: 600px;
-            margin: 20px auto;
-            padding: 20px;
-            background: white;
-            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-        }
-        h2 {
-            text-align: center;
-        }
-        .appliance-control {
-            margin-bottom: 20px;
-        }
-        button {
-            padding: 10px;
-            margin-right: 10px;
-            cursor: pointer;
-        }
-    </style>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
@@ -41,15 +17,17 @@
     <!-- Fan Controls -->
     <div class="appliance-control">
         <h3>Fan Control</h3>
-        <button onclick="setFanSpeed(0)">Turn Off</button>
-        <button onclick="setFanSpeed(1)">Set Speed to Low</button>
-        <button onclick="setFanSpeed(2)">Set Speed to High</button>
+        <img id="fan-icon" src="/img/fan.svg" alt="Fan Icon" width="100" height="100">
+
+        <input type="range" min="0" max="2" step="1" class="slider" id="fan-speed-slider" onchange="updateFanSpeed()">
         <p id="fan-status">Fan Status: </p>
     </div>
 
     <!-- Light Controls -->
     <div class="appliance-control">
         <h3>Light Control</h3>
+        <img id="light-icon" src="/img/light-switch-off.svg" alt="Light Icon" width="100" height="100">
+
         <button onclick="turnOnAppliance(1)">Turn On Light</button>
         <button onclick="turnOffAppliance(1)">Turn Off Light</button>
         <p id="light-status">Light Status: </p>
@@ -58,7 +36,8 @@
     <!-- Thermostat -->
     <div class="appliance-control">
         <h3>Thermostat</h3>
-        <label for="temperature-input"></label><input type="number" id="temperature-input" placeholder="Set Temperature">
+        <label for="temperature-input"></label>
+        <input type="number" id="temperature-input" placeholder="Set Temperature">
         <button onclick="setACTemperature()">Set Temperature</button>
         <button onclick="turnOnAppliance(3)">ON</button>
         <button onclick="turnOffAppliance(3)">OFF</button>
