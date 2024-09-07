@@ -69,13 +69,20 @@ function turnOnAppliance(id) {
 // Air Conditioner Control
 function setACTemperature() {
     const temperature = document.getElementById("temperature-input").value;
-
-    const acStatus = document.getElementById("ac-status");
-    acStatus.classList.remove("black");
-    if (temperature === "") {
-        acStatus.innerText = "Please set a valid temperature.";
+    if (isNaN(temperature)) {
+        acStatus.innerText = "Error: Please enter a valid number for temperature.";
+        acStatus.classList.remove("cold", "warm");
+        acStatus.classList.add("error");
+        return;
+    }    const acStatus = document.getElementById("ac-status");
+    if (temperature < 10 || temperature > 35) {
+        acStatus.innerText = "Error: Temperature must be between 10°C and 35°C.";
+        acStatus.classList.remove("cold", "warm");
+        acStatus.classList.add("error");
         return;
     }
+
+    acStatus.classList.remove("black");
 
     fetch(`${API_URL}/airconditioner/${acId}/temperature?temperature=${temperature}`, { method: 'POST' })
         .then(response => response.text())
@@ -92,15 +99,39 @@ function setACTemperature() {
             }
             document.getElementById("ac-status").innerText = `AC Status: ${data}`;
         })
-        .catch(error => console.error('Error:', error));
+        .catch(error => {
+            console.error('Error:', error);
+            acStatus.innerText = `Error: Unable to set temperature. ${error.message}`;
+            acStatus.classList.remove("cold", "warm");
+            acStatus.classList.add("error");
+        });
 }
-
-
 
 // Status
 function getAllStatus(){
   // get the statuses with the ID or appliance type.
-    fetch(`${API_URL}/appliances/status/all`, {method: 'GET'}).then(response =>response.text()).then(data =>{
-        document.getElementById("")
-    })
+    fetch(`${API_URL}/status/all`)
+        .then(response => {
+            if (!response.ok) {
+                throw new Error(`Server error: ${response.status}`);
+            }
+            return response.json();
+        })
+        .then(data => {
+            const [lightStatus,fanStatus,acStatus] = data;
+
+            document.getElementById("fan-status").innerText = `Fan Status: ${fanStatus}`;
+            document.getElementById("light-status").innerText = `Light Status: ${lightStatus}`;
+            document.getElementById("ac-status").innerText = `AC Status: ${acStatus}`;
+        })
+        .catch(error => {
+            console.error('Error:', error);
+            document.getElementById("fan-status").innerText = "Error fetching fan status.";
+            document.getElementById("light-status").innerText = "Error fetching light status.";
+            document.getElementById("ac-status").innerText = "Error fetching AC status.";
+        });
 }
+
+window.onload = function() {
+    getAllStatus();
+};

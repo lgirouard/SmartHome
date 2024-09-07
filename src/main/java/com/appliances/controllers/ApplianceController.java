@@ -40,7 +40,6 @@ public class ApplianceController {
                 .collect(Collectors.toList());
     }
 
-
     // Set fan speed (0 = OFF, 1 = LOW, 2 = HIGH)
     @PostMapping("/fan/{id}/speed")
     public String setFanSpeed(@PathVariable Long id, @RequestParam int speed) {
@@ -52,5 +51,7 @@ public class ApplianceController {
     public String setAirConditionerTemperature(@PathVariable Long id, @RequestParam int temperature) {
         return applianceService.setAirConditionerTemperature(id, temperature);
     }
+
+
 
 }

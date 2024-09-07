@@ -72,8 +72,7 @@ public class ApplianceService {
     public String setAirConditionerTemperature(Long id, int temperature) {
         Optional<ApplianceEntity> appliance = applianceRepo.findById(id);
 
-        if (appliance.isPresent() && appliance.get() instanceof AirConditioner) {
-            AirConditioner ac = (AirConditioner) appliance.get();
+        if (appliance.isPresent() && appliance.get() instanceof AirConditioner ac) {
             ac.setTemperature(temperature);
             applianceRepo.save(ac);
             return ac.getStatus();

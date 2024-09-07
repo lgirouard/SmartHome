@@ -20,7 +20,7 @@
         <img id="fan-icon" src="/img/fan.svg" alt="Fan Icon" width="100" height="100">
 
         <input type="range" min="0" max="2" step="1" class="slider" id="fan-speed-slider" onchange="updateFanSpeed()">
-        <p id="fan-status">Fan Status: </p>
+        <p id="fan-status">Fan Status: Loading...</p>
     </div>
 
     <!-- Light Controls -->
@@ -30,7 +30,7 @@
 
         <button onclick="turnOnAppliance(1)">Turn On Light</button>
         <button onclick="turnOffAppliance(1)">Turn Off Light</button>
-        <p id="light-status">Light Status: </p>
+        <p id="light-status">Light Status: Loading...</p>
     </div>
 
     <!-- Thermostat -->
@@ -41,7 +41,7 @@
         <button onclick="setACTemperature()">Set Temperature</button>
         <button onclick="turnOnAppliance(3)">ON</button>
         <button onclick="turnOffAppliance(3)">OFF</button>
-        <p id="ac-status">AC Status: </p>
+        <p id="ac-status">AC Status: Loading... </p>
     </div>
 </div>
 
