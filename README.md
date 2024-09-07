@@ -10,7 +10,7 @@ This solution was built for a coding assessment at the request of Medavie Blue C
 - Control **Fan**: Adjust speed (Off, Low, High).
 - Control **Light**: Turn on and off.
 - Control **Air Conditioner**: Set temperature and turn on/off.
-- Annual Update: Turn off all systems at 0100 January 1, each year.
+- Scheduled Update: Turn off all systems at 0100 January 1 each year automatically.
 
 ## Technology Stack
 - **Back-End**: Spring Boot (Java), H2 Database (for persistence)
