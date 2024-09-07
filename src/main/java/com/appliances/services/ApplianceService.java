@@ -79,4 +79,13 @@ public class ApplianceService {
         }
         return "Air Conditioner not found!";
     }
+
+    public void turnOffAllAppliances() {
+        List<ApplianceEntity> appliances = applianceRepo.findAll();
+        for (ApplianceEntity appliance : appliances) {
+            appliance.powerOff();
+        }
+        applianceRepo.saveAll(appliances);
+        System.out.println("All appliances have been turned off for the system update.");
+    }
 }
