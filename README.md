@@ -74,8 +74,8 @@ Polymorphism is used to manage different appliance behaviors (e.g., the fan adju
 ### Steps to Run:
 1. **Clone the Repository**:
     ```
-    git clone <[repository-url](https://github.com/lgirouard/SmartHome/)>
-    cd <SmartHome>
+    git clone https://github.com/lgirouard/SmartHome/
+    cd SmartHome
     ```
 
 2. **Run the Application**:
@@ -83,12 +83,6 @@ Polymorphism is used to manage different appliance behaviors (e.g., the fan adju
     ```
     mvn spring-boot:run
     ```
-    Alternatively, you can package the application and run the jar:
-    ```
-    mvn clean package
-    java -jar target/smart-home-appliance-control-0.0.1-SNAPSHOT.jar
-    ```
-
 3. **Access the Application**:
    Open a browser and go to: `http://localhost:8080`
 
@@ -98,7 +92,7 @@ Polymorphism is used to manage different appliance behaviors (e.g., the fan adju
    Open a browser and go to: `http://localhost:8080/h2-console`
    Log in with these credentials
        ```
-       spring.datasource.url=jdbc:h2:mem:appliances;
+        spring.datasource.url=jdbc:h2:mem:appliances;
         spring.datasource.driver-class-name=org.h2.Driver
         spring.datasource.username=testUser
         spring.datasource.password=testPass
