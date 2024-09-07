@@ -74,8 +74,8 @@ Polymorphism is used to manage different appliance behaviors (e.g., the fan adju
 ### Steps to Run:
 1. **Clone the Repository**:
     ```
-    git clone <repository-url>
-    cd <repository-directory>
+    git clone <[repository-url](https://github.com/lgirouard/SmartHome/)>
+    cd <SmartHome>
     ```
 
 2. **Run the Application**:
@@ -93,6 +93,19 @@ Polymorphism is used to manage different appliance behaviors (e.g., the fan adju
    Open a browser and go to: `http://localhost:8080`
 
    The front-end page will load, and you can control the appliances (fan, light, and AC) through the provided interface.
+
+3. **View the Database**:
+   Open a browser and go to: `http://localhost:8080/h2-console`
+   Log in with these credentials
+       ```
+       spring.datasource.url=jdbc:h2:mem:appliances;
+        spring.datasource.driver-class-name=org.h2.Driver
+        spring.datasource.username=testUser
+        spring.datasource.password=testPass
+        ```
+    Click the APPLIANCE_ENTITY table, and run the SQL query.
+    Interact with the application, and run the query to see the updates to the DB.
+ 
 
 ### Notes
 - The H2 database is in-memory, so all appliance states will reset when the application restarts.
