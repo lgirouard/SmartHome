@@ -10,6 +10,7 @@ This solution was built for a coding assessment at the request of Medavie Blue C
 - Control **Fan**: Adjust speed (Off, Low, High).
 - Control **Light**: Turn on and off.
 - Control **Air Conditioner**: Set temperature and turn on/off.
+- Annual Update: Turn off all systems at 0100 January 1, each year.
 
 ## Technology Stack
 - **Back-End**: Spring Boot (Java), H2 Database (for persistence)
@@ -60,12 +61,7 @@ The front-end consists of a simple **HTML** page styled with **CSS** to control 
 - `POST /airconditioner/{id}/temperature?temperature={temp}` - Set the air conditioner temperature
 - `GET /api/appliances/status/all` - Retrieve the status of all appliances
 
-### 5. **Error Handling**
-- Error handling is implemented both on the client-side (JavaScript) and server-side (Spring Boot).
-- **Client-side**: If a network request fails or if invalid inputs are provided (e.g., invalid temperature), appropriate error messages are displayed to the user.
-- **Server-side**: Spring Boot handles invalid requests and database errors, returning the correct HTTP status codes.
-
-### 6. **Polymorphism**
+### 5. **Polymorphism**
 Polymorphism is used to manage different appliance behaviors (e.g., the fan adjusts speed, the light toggles on/off). Each appliance implements an interface to ensure common functionality while allowing each appliance type to handle specific logic.
 
 ## How to Run the Project
